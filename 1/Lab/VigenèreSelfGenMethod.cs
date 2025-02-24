@@ -53,6 +53,7 @@ namespace Lab
                 char[] chars;
                 this.GetClearKey();
                 this.GetClearText();
+                int startKeyLength = Key.Length;
 
                 chars = new char[] {'\0'};
                 for (int i = 0; i < Text.Length; i++)
@@ -70,7 +71,7 @@ namespace Lab
                             chars[i + 1] = (char)(chars[i + 1] - 'А' + 'Ё' - 1 + 1);
                     }
                     if(i == Key.Length - 1)
-                        Key = new string(Key.Append(chars[i - PlainKey.Length + 2]).ToArray());
+                        Key = new string(Key.Append(chars[i - startKeyLength + 2]).ToArray());
                 }
                 Text = new String(chars.Skip(1).ToArray());
 
